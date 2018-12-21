@@ -15,7 +15,7 @@ doppelganger reads.
 usage: rmdopfq <in.fq> <out.fq>
 ```
 
-Assume that each sequence and quality score entry `r1.fq` and `r2.fq` is single-line.
+Assume that each sequence and quality score entry in `in.fq` is on a single line.
 
 The output file `out.fq` will contain only reads with unique names.
 Duplicate read names are emitted to `stderr`.

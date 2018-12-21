@@ -60,7 +60,7 @@ int main(int argc, char* argv[]) {
 
     int nargs = argc - 1;
     if (nargs < 2) {
-        cerr << "usage: pairfq <in.fq> <out.fq>" << endl;
+        cerr << "usage: rmdopfq <in.fq> <out.fq>" << endl;
         return 1;
     } else {
         in_fname = argv[1];
