@@ -76,6 +76,7 @@ int main(int argc, char* argv[]) {
     
     set<string> qnames;
     fastq_entry entry;
+    size_t n = 0, ndops = 0;
 
     while (true) {
         if (!read_fastq_entry(inf, entry)) break;
@@ -85,11 +86,15 @@ int main(int argc, char* argv[]) {
             qnames.insert(entry.qname);
             // write read to file
             write_fastq_entry(outf, entry); 
+            ++n;
         } else {
-            // read name is duplicated: print entry to stderr instead
-            cerr << entry.qname << endl;
+            // read name is duplicated: do not write entry
+            ++ndops;
         }
     }
+
+    cerr << "Unique read names: " << n << endl;
+    cerr << "Duplicate read names: " << ndops << endl;
     
     // clean up
     
