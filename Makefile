@@ -1,5 +1,6 @@
 CXX=g++
 CPPFLAGS=-O3
+DESTDIR ?= /usr/local
 
 all: rmdopfq
 	
@@ -19,6 +20,10 @@ coverage: check
 
 test: check
 	
+
+install: rmdopfq
+	mkdir -p $(DESTDIR)/bin/
+	install rmdopfq $(DESTDIR)/bin/
 
 clean:
 	rm -f rmdopfq check
