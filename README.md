@@ -25,13 +25,13 @@ Duplicate read names are emitted to `stderr`.
 We can read from a gziped fastq file and output to a gziped fastq file by:
 
 ```{bash}
-rmdopfq <(gunzip -c r1.fq.gz) /dev/stdout | gzip > r1rd.fq.gz
+gunzip -c r1.fq.gz | rmdopfq /dev/stdin /dev/stdout | gzip > r1rd.fq.gz
 ```
 
 If the reads are paired, we can do the same with the other read.
 
 ```{bash}
-rmdopfq <(gunzip -c r2.fq.gz) /dev/stdout | gzip > r2rd.fq.gz
+gunzip -c r2.fq.gz | rmdopfq /dev/stdin /dev/stdout | gzip > r2rd.fq.gz
 ```
 
 Now, we can align the pair-end reads by
